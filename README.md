@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,12 +9,12 @@
     <style>
         :root {
             /* Sophisticated neutral palette with subtle accents */
-            --primary: #2d3748; /* Charcoal */
+            --primary: #2d3748;
             --primary-light: #4a5568;
-            --secondary: #6b46c1; /* Muted purple */
-            --accent: #e2e8f0; /* Light gray */
-            --light: #f8fafc; /* Off-white */
-            --dark: #1a202c; /* Deep charcoal */
+            --secondary: #6b46c1;
+            --accent: #e2e8f0;
+            --light: #f8fafc;
+            --dark: #1a202c;
             --text: #2d3748;
             --text-light: #718096;
             --border: #e2e8f0;
@@ -23,12 +24,8 @@
             --mbti-green: #48bb78;
             --mbti-yellow: #ecc94b;
             --mbti-red: #f56565;
-            
-            /* Gradients */
             --gradient-primary: linear-gradient(135deg, #6b46c1, #4a5568);
             --gradient-subtle: linear-gradient(135deg, #f8fafc, #e2e8f0);
-            
-            /* Typography */
             --font-main: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             --font-heading: 'Playfair Display', serif;
             --font-display: 'Inter', sans-serif;
@@ -155,6 +152,9 @@
             margin-bottom: 3rem;
             position: relative;
             overflow: hidden;
+            background-image: url('https://images.unsplash.com/photo-1507238691740-38f07fcdd1e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
         }
         
         .hero::before {
@@ -164,9 +164,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 Q50,20 100,0 L100,100 Q50,80 0,100 Z" fill="rgba(107, 70, 193, 0.05)"/></svg>');
-            background-size: cover;
-            opacity: 0.7;
+            background: rgba(255, 255, 255, 0.85);
         }
         
         .hero-content {
@@ -181,7 +179,7 @@
             font-family: var(--font-heading);
             font-size: 3.2rem;
             margin-bottom: 1.5rem;
-            color: var(--primary-dark);
+            color: var(--primary);
             line-height: 1.2;
             font-weight: 600;
         }
@@ -395,17 +393,6 @@
             overflow: hidden;
         }
         
-        .product-img::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%236b46c1" opacity="0.1"/><circle cx="80" cy="30" r="1.5" fill="%236b46c1" opacity="0.1"/><circle cx="50" cy="70" r="2.5" fill="%236b46c1" opacity="0.1"/></svg>');
-            background-size: 300px;
-        }
-        
         .product-info {
             padding: 2rem;
         }
@@ -506,12 +493,9 @@
             font-size: 3.8rem;
             position: relative;
             overflow: hidden;
-        }
-        
-        .blog-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            background-image: url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80');
+            background-size: cover;
+            background-position: center;
         }
         
         .blog-content {
@@ -655,6 +639,10 @@
             padding: 5rem 0;
             margin: 4rem 0;
             border-radius: 25px;
+            background-image: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            background-blend-mode: overlay;
         }
         
         .testimonials-grid {
@@ -823,22 +811,29 @@
             transform: translateY(-3px);
         }
         
-        /* Responsive Design */
-        @media (max-width: 992px) {
-            .blog-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .hero h1 {
-                font-size: 2.6rem;
-            }
-            
-            .mbti-grid {
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            }
-        }
-        
+        /* Mobile Menu */
         @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem 0;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+                z-index: 100;
+            }
+            
+            nav ul.show {
+                display: flex !important;
+            }
+            
             .header-content {
                 flex-direction: column;
                 gap: 1.2rem;
@@ -884,6 +879,10 @@
             .mbti-overview {
                 padding: 2rem;
             }
+            
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
         }
         
         @media (max-width: 576px) {
@@ -912,7 +911,7 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <a href="#" class="logo">
+                <a href="#home" class="logo">
                     <div class="logo-icon">
                         <i class="fas fa-brain"></i>
                     </div>
@@ -927,7 +926,7 @@
                         <li><a href="#about">About</a></li>
                     </ul>
                 </nav>
-                <button class="mobile-menu-btn">
+                <button class="mobile-menu-btn" aria-label="Toggle menu">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
@@ -1015,7 +1014,6 @@
                         <a href="https://www.amazon.com/Please-Understand-Me-II-Temperament/dp/0960695427/?tag=personalityinsights-20" target="_blank" class="btn" style="padding: 0.75rem 1.6rem; font-size: 0.95rem; width: 100%;">View on Amazon</a>
                     </div>
                 </div>
-                
                 <!-- Product 2 -->
                 <div class="product-card">
                     <div class="product-img">
@@ -1035,7 +1033,6 @@
                         <a href="https://www.amazon.com/Gifts-Differing-Understanding-Personality-Type/dp/089096074X/?tag=personalityinsights-20" target="_blank" class="btn" style="padding: 0.75rem 1.6rem; font-size: 0.95rem; width: 100%;">View on Amazon</a>
                     </div>
                 </div>
-                
                 <!-- Product 3 -->
                 <div class="product-card">
                     <div class="product-img">
@@ -1053,7 +1050,6 @@
                         <a href="https://www.amazon.com/MBTI-Cognitive-Functions-Guide-Understanding/dp/B08XYZABC1/?tag=personalityinsights-20" target="_blank" class="btn" style="padding: 0.75rem 1.6rem; font-size: 0.95rem; width: 100%;">View on Amazon</a>
                     </div>
                 </div>
-                
                 <!-- Product 4 -->
                 <div class="product-card">
                     <div class="product-img">
@@ -1130,9 +1126,7 @@
                 <div class="blog-posts">
                     <!-- Blog Post 1 -->
                     <article class="blog-card">
-                        <div class="blog-img">
-                            <i class="fas fa-sync-alt"></i>
-                        </div>
+                        <div class="blog-img"></div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <span><i class="far fa-calendar"></i> June 15, 2023</span>
@@ -1143,12 +1137,9 @@
                             <a href="#" class="blog-read-more">Read full article <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
-                    
                     <!-- Blog Post 2 -->
                     <article class="blog-card">
-                        <div class="blog-img">
-                            <i class="fas fa-user-friends"></i>
-                        </div>
+                        <div class="blog-img"></div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <span><i class="far fa-calendar"></i> May 28, 2023</span>
@@ -1159,12 +1150,9 @@
                             <a href="#" class="blog-read-more">Read full article <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
-                    
                     <!-- Blog Post 3 -->
                     <article class="blog-card">
-                        <div class="blog-img">
-                            <i class="fas fa-heart"></i>
-                        </div>
+                        <div class="blog-img"></div>
                         <div class="blog-content">
                             <div class="blog-meta">
                                 <span><i class="far fa-calendar"></i> May 10, 2023</span>
@@ -1176,7 +1164,6 @@
                         </div>
                     </article>
                 </div>
-                
                 <!-- Blog Sidebar -->
                 <div class="blog-sidebar">
                     <!-- Search Widget -->
@@ -1188,7 +1175,6 @@
                             <button><i class="fas fa-search"></i></button>
                         </div>
                     </div>
-                    
                     <!-- Categories Widget -->
                     <div class="sidebar-widget">
                         <h3 class="sidebar-title">Categories</h3>
@@ -1201,7 +1187,6 @@
                             <li><a href="#">MBTI Research <span>(6)</span></a></li>
                         </ul>
                     </div>
-                    
                     <!-- Recent Posts Widget -->
                     <div class="sidebar-widget">
                         <h3 class="sidebar-title">Recent Posts</h3>
@@ -1214,7 +1199,6 @@
                     </div>
                 </div>
             </div>
-            
             <div class="page-nav">
                 <a href="#" class="active">1</a>
                 <a href="#">2</a>
@@ -1275,45 +1259,29 @@
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    const offsetTop = targetElement.offsetTop - 80;
                     window.scrollTo({
-                        top: target.offsetTop - 80,
+                        top: offsetTop,
                         behavior: 'smooth'
                     });
                 }
             });
         });
-        
+
         // Mobile menu toggle
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const navMenu = document.querySelector('nav ul');
         
-        if (mobileMenuBtn) {
+        if (mobileMenuBtn && navMenu) {
             mobileMenuBtn.addEventListener('click', () => {
                 navMenu.classList.toggle('show');
             });
         }
-        
-        // Add subtle animations on scroll
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animated');
-                }
-            });
-        }, observerOptions);
-        
-        // Observe sections for animation
-        document.querySelectorAll('.section, .hero, .testimonials').forEach(section => {
-            observer.observe(section);
-        });
     </script>
 </body>
 </html>
